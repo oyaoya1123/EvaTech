@@ -47,8 +47,16 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+#デフォルトのproductionをコメントアウト
+#production:
+#  <<: *default
+#  database: EvaTech_production
+#  username: EvaTech
+#  password: <%= ENV['EVATECH_DATABASE_PASSWORD'] %>
+
 production:
   <<: *default
-  database: EvaTech_production
-  username: EvaTech
-  password: <%= ENV['EVATECH_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
